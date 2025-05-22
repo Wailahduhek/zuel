@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zuel Story</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul>
+          <li><a href="#" onclick="showPage('home')"><i class="fas fa-home"></i> <span>Home</span></a></li>
+          <li id="monitoringMenu"><a href="#" onclick="showPage('monitoring')"><i class="fas fa-eye"></i> <span>Monitoring</span></a></li>
+          <li id="settingsMenu"><a href="#" onclick="showPage('settings')"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+          <li id="transferMenu"><a href="#" onclick="showPage('transfer')"><i class="fa fa-exchange"></i> <span>Transfer Item</span></a></li>
+        </ul>
+      </div>
+      
+      <div class="main">
+        <div class="topbar">
+          <marquee behavior="scroll" direction="left">Welcome he/her | Zuel Story | Growtopia Farming Dashboard</marquee>
+          <button id="loginBtn">Login</button>
+        </div>
+      
+        <div class="login-form" id="loginForm">
+          <input type="text" id="username" placeholder="Username">
+          <input type="password" id="password" placeholder="Password">
+          <button id="submitLogin">Submit</button>
+        </div>
+        <div id="homePage">
+            <h2>Zuel Story</h2>
+        </p>EVAN ZAKY</p>
+          </div>          
+        <div id="monitoringPage" style="display: none;">
+          <h2> </h2>
+          <div class="status-summary">
+            <h3>Bot Status Summary</h3>
+            <p id="totalOnlineBots">Total Online Bots: 0</p>
+            <p id="totalOfflineBots">Total Offline Bots: 0</p>
+            <p id="totalPacks">Total Packs: 0</p>
+            <p id="totalGems">Total Gems: 0</p>
+      
+            <div style="margin-top: 15px; display: flex; gap: 10px;">
+              <button onclick="connectAllBots()" class="connect-button">Connect All</button>
+              <button onclick="disconnectAllBots()" class="disconnect-button">Disconnect All</button>
+              <button onclick="vialOn()" class="connect-button">Vial On</button>
+              <button onclick="vialOf()" class="disconnect-button">Vial Off</button>
+              <button onclick="removeBotStatus()" class="disconnect-button">Remove Bot</button>
+            </div>
+          </div>
+      
+          <div id="botStatus">
+            <table id="botStatusTable">
+              <thead>
+                <tr>
+                  <th>&#12513;</th>
+                  <th>Bot Name</th>
+                  <th>Status</th>
+                  <th>Level</th>
+                  <th>Malady</th>
+                  <th>EXP</th>
+                  <th>World</th>
+                  <th>Rotation</th>
+                  <th>Gems</th>
+                  <th>Total Gems</th>
+                  <th>Total Packs</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      
+        <div id="settingsPage" style="display: none;">
+          <h2>Atur Waktu Connect / Disconnect</h2>
+          <div class="input-wrapper">
+            <label for="timeInput">Masukkan Waktu:</label>
+            <input type="text" id="timeInput" placeholder="Contoh: 19:29">
+            <div class="button-group">
+              <button class="remove-button" id="addConnectTime">Tambah ke Connect</button>
+              <button class="remove-button" id="addDisconnectTime">Tambah ke Disconnect</button>
+              <button class="remove-button" id="resetButton">Reset Waktu</button>
+            </div>
+          </div>
+      
+          <br><br>
+          <label>List Connect:</label><br>
+          <select id="connectList" multiple></select>
+      
+          <br><br>
+          <label>List Disconnect:</label><br>
+          <select id="disconnectList" multiple></select>
+      
+          <br><br>
+          <div id="consoleBox"></div>
+        </div>
+      
+        <div id="transferPage" style="display: none;">
+          <h2>Belum ada masih bug !!</h2>
+        </div>
+      </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
