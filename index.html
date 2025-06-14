@@ -1,112 +1,365 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zuel Story</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-</head>
-<body>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Zuel Story</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <div class="sidebar" id="sidebar">
-        <div class="toggle-btn" onclick="toggleSidebar()">
-          <i class="fas fa-bars"></i>
-        </div>
-        <ul>
-          <li><a href="#" onclick="showPage('home')"><i class="fas fa-home"></i> <span>Home</span></a></li>
-          <li id="monitoringMenu"><a href="#" onclick="showPage('monitoring')"><i class="fas fa-eye"></i> <span>Monitoring</span></a></li>
-          <li id="settingsMenu"><a href="#" onclick="showPage('settings')"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
-          <li id="transferMenu"><a href="#" onclick="showPage('transfer')"><i class="fa fa-exchange"></i> <span>Transfer Item</span></a></li>
-        </ul>
+      <div class="toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
       </div>
-      
-      <div class="main">
-        <div class="topbar">
-          <marquee behavior="scroll" direction="left">Welcome he/her | Zuel Story | Growtopia Farming Dashboard</marquee>
-          <button id="loginBtn">Login</button>
-        </div>
-      
-        <div class="login-form" id="loginForm">
-          <input type="text" id="username" placeholder="Username">
-          <input type="password" id="password" placeholder="Password">
-          <button id="submitLogin">Submit</button>
-        </div>
-        <div id="homePage">
-            <h2>Zuel Story</h2>
-        </p>EVAN ZAKY</p>
-          </div>          
-        <div id="monitoringPage" style="display: none;">
-          <h2> </h2>
-          <div class="status-summary">
-            <h3>Bot Status Summary</h3>
-            <p id="totalOnlineBots">Total Online Bots: 0</p>
-            <p id="totalOfflineBots">Total Offline Bots: 0</p>
-            <p id="totalPacks">Total Packs: 0</p>
-            <p id="totalGems">Total Gems: 0</p>
-      
-            <div style="margin-top: 15px; display: flex; gap: 10px;">
-              <button onclick="connectAllBots()" class="connect-button">Connect All</button>
-              <button onclick="disconnectAllBots()" class="disconnect-button">Disconnect All</button>
-              <button onclick="vialOn()" class="connect-button">Vial On</button>
-              <button onclick="vialOf()" class="disconnect-button">Vial Off</button>
-              <button onclick="removeBotStatus()" class="disconnect-button">Remove Bot</button>
-            </div>
-          </div>
-      
-          <div id="botStatus">
-            <table id="botStatusTable">
-              <thead>
-                <tr>
-                  <th>&#12513;</th>
-                  <th>Bot Name</th>
-                  <th>Status</th>
-                  <th>Level</th>
-                  <th>Malady</th>
-                  <th>EXP</th>
-                  <th>World</th>
-                  <th>Rotation</th>
-                  <th>Gems</th>
-                  <th>Total Gems</th>
-                  <th>Total Packs</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      
-        <div id="settingsPage" style="display: none;">
-          <h2>Atur Waktu Connect / Disconnect</h2>
-          <div class="input-wrapper">
-            <label for="timeInput">Masukkan Waktu:</label>
-            <input type="text" id="timeInput" placeholder="Contoh: 19:29">
-            <div class="button-group">
-              <button class="remove-button" id="addConnectTime">Tambah ke Connect</button>
-              <button class="remove-button" id="addDisconnectTime">Tambah ke Disconnect</button>
-              <button class="remove-button" id="resetButton">Reset Waktu</button>
-            </div>
-          </div>
-      
-          <br><br>
-          <label>List Connect:</label><br>
-          <select id="connectList" multiple></select>
-      
-          <br><br>
-          <label>List Disconnect:</label><br>
-          <select id="disconnectList" multiple></select>
-      
-          <br><br>
-          <div id="consoleBox"></div>
-        </div>
-      
-        <div id="transferPage" style="display: none;">
-          <h2>Belum ada masih bug !!</h2>
-        </div>
+      <ul>
+        <li>
+          <a href="#" onclick='showPage("home")'
+            ><i class="fas fa-home"></i><span>Home</span></a
+          >
+        </li>
+        <li id="monitoringMenu">
+          <a href="#" onclick='showPage("monitoring")'
+            ><i class="fas fa-eye"></i><span>Monitoring</span></a
+          >
+        </li>
+        <li id="settingsMenu">
+          <a href="#" onclick='showPage("settings")'
+            ><i class="fas fa-cog"></i><span>Settings</span></a
+          >
+        </li>
+        <li id="transferMenu">
+          <a href="#" onclick='showPage("transfer")'
+            ><i class="fa fa-exchange"></i><span>AddBot</span></a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="topbar">
+        <marquee behavior="scroll" direction="left"
+          >Welcome he/her | Zuel Story | Growtopia Farming Dashboard</marquee
+        ><button id="loginBtn">Login</button>
+      </div>
+      <div class="login-form" id="loginForm">
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+        <input type="text" id="baseUrl" placeholder="IP:PORT" />
+        <input type="text" id="secret" placeholder="Licensi" />
+        <button id="submitLogin">Login</button>
       </div>
 
-  <script src="js/script.js"></script>
-</body>
+      <hr
+        style="border: none; border-top: 2px solid #444; margin: 0 0 10px 0"
+      />
+      <div id="homePage">
+        <img
+          src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW50cnJtc2FyYW5vYjN2MXMzcXJjNGpjZHZkdjBocHhydmRlNm01bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26tnkeXdTGdb4smPe/giphy.gif"
+          alt="Animated Gif"
+          style="max-width: 100%; border-radius: 20px; margin-bottom: 20px"
+        />
+        <h2>Zuel Story Dashboard</h2>
+        <p>
+          Monitor your bot efficiently and boost your farming experience with
+          Zuel Story Dashboard.
+        </p>
+      </div>
+      <div id="monitoringPage" style="display: none">
+        <div class="status-summary">
+          <p id="totalOnlineBots">Total Online : 0</p>
+          <p id="totalOfflineBots">Total Offline : 0</p>
+          <p id="totalSuspendedBots">Total Suspended : 0 ⚠️</p>
+          <p id="totalPacks">Total Packs: 0</p>
+          <p id="totalGems">Total Gems: 0</p>
+          <div style="margin-top: 15px; display: flex; gap: 10px">
+            <button onclick="connectAllBots()" class="connect-button">
+              Connect All</button
+            ><button onclick="disconnectAllBots()" class="disconnect-button">
+              Disconnect All</button
+            ><button onclick="removeBotStatus()" class="disconnect-button">
+              Remove Bot
+            </button>
+          </div>
+          <input
+            id="manualPacks"
+            type="number"
+            placeholder="Set Total Packs Awal"
+          />
+          <button onclick="setBaseTotalPacks()" class="remove-button">
+            Submit
+          </button>
+        </div>
+        <table id="botStatusTable">
+          <thead>
+            <tr>
+              <th>&#12513;</th>
+              <th>Bot Name</th>
+              <th>Status</th>
+              <th>Level</th>
+              <th>Malady</th>
+              <th>EXP</th>
+              <th>World</th>
+              <th>Rotation</th>
+              <th>Gems</th>
+              <th>Total Gems</th>
+              <th>Total Packs</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div id="contextMenu" class="context-menu">
+          <button onclick="handleContextAction('connect')">Connect</button>
+          <button onclick="handleContextAction('disconnect')">
+            Disconnect
+          </button>
+          <button onclick="handleContextAction('removeBot')">Remove</button>
+          <button onclick="handleContextAction('removeProxy')">
+            Remove Proxy
+          </button>
+        </div>
+      </div>
+      <div id="settingsPage" style="display: none">
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+            max-width: 1200px;
+          "
+        >
+          <div
+            style="
+              flex: 1;
+              min-width: 300px;
+              border: 1px solid #555;
+              border-radius: 10px;
+              padding: 15px;
+              background-color: #1a1a1a;
+            "
+          >
+            <h3>Pengaturan Waktu</h3>
+            <input
+              type="text"
+              id="timeInput"
+              placeholder="Contoh: 19:29"
+              style="
+                width: 100%;
+                padding: 8px;
+                font-size: 14px;
+                border-radius: 5px;
+                border: 1px solid #555;
+                background-color: #222;
+                color: #eee;
+                box-sizing: border-box;
+                margin-bottom: 20px;
+              "
+            />
+            <div style="display: flex; gap: 20px; flex-wrap: wrap">
+              <div
+                style="
+                  flex: 1;
+                  min-width: 200px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 10px;
+                "
+              >
+                <button class="remove-button" id="addConnectTime">
+                  Tambah ke Connect</button
+                ><button class="remove-button" id="addDisconnectTime">
+                  Tambah ke Disconnect</button
+                ><button class="remove-button" id="resetButton">
+                  Reset Waktu
+                </button>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  gap: 20px;
+                  flex-wrap: wrap;
+                  margin-top: 10px;
+                "
+              >
+                <div style="flex: 1; min-width: 140px">
+                  <label for="connectList"><strong>List Connect:</strong></label
+                  ><br /><select
+                    id="connectList"
+                    multiple="multiple"
+                    style="
+                      width: 100%;
+                      height: 120px;
+                      background-color: #222;
+                      color: #fff;
+                      border-radius: 6px;
+                      border: 1px solid #555;
+                      padding: 5px;
+                    "
+                  ></select>
+                </div>
+                <div style="flex: 1; min-width: 140px">
+                  <label for="disconnectList"
+                    ><strong>List Disconnect:</strong></label
+                  ><br /><select
+                    id="disconnectList"
+                    multiple="multiple"
+                    style="
+                      width: 100%;
+                      height: 120px;
+                      background-color: #222;
+                      color: #fff;
+                      border-radius: 6px;
+                      border: 1px solid #555;
+                      padding: 5px;
+                    "
+                  ></select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="toggles-wrapper"
+            style="
+              flex: 1;
+              min-width: 280px;
+              max-width: 320px;
+              border: 1px solid #555;
+              border-radius: 10px;
+              padding: 15px;
+              background-color: #1a1a1a;
+            "
+          >
+            <h3>Malady Settings</h3>
+            <div class="toggle-container">
+              <span class="toggle-label">Auto Vial</span>
+              <div class="custom-toggle" data-feature="auto_vial">
+                <div class="knob"></div>
+              </div>
+            </div>
+            <div class="toggle-container">
+              <span class="toggle-label">Auto Grumbleteeth</span>
+              <div class="custom-toggle" data-feature="auto_grumbleteeth">
+                <div class="knob"></div>
+              </div>
+            </div>
+            <div class="toggle-container">
+              <span class="toggle-label">Auto Chiken Feet</span>
+              <div class="custom-toggle" data-feature="auto_chicken_feet">
+                <div class="knob"></div>
+              </div>
+            </div>
+            <div class="toggle-container">
+              <span class="toggle-label">Auto Refresh</span>
+              <div class="custom-toggle" data-feature="auto_refresh">
+                <div class="knob"></div>
+              </div>
+            </div>
+            <div class="toggle-container">
+              <span class="toggle-label">Auto Disconnect</span>
+              <div class="custom-toggle" data-feature="auto_disconnect">
+                <div class="knob"></div>
+              </div>
+            </div>
+            <div class="toggle-container">
+              <span class="toggle-label">Auto Surgery Station</span>
+              <div class="custom-toggle" data-feature="auto_surgery_station">
+                <div class="knob"></div>
+              </div>
+            </div>
+            <div class="toggle-container">
+              <span class="toggle-label">Use Home</span>
+              <div class="custom-toggle" data-feature="use_home">
+                <div class="knob"></div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="toggles-wrapper"
+            style="
+              flex: 1;
+              min-width: 280px;
+              max-width: 320px;
+              border: 1px solid #555;
+              border-radius: 10px;
+              padding: 15px;
+              background-color: #1a1a1a;
+            "
+          >
+            <h3>Rotation Settings</h3>
+            <div class="toggle-container">
+              <span class="toggle-label">Rotation Status</span>
+              <div class="custom-toggle" data-feature="auto_rotasi">
+                <div class="knob"></div>
+              </div>
+            </div>
+            <div class="toggle-container">
+              <span class="toggle-label">Anti Toxic</span>
+              <div class="custom-toggle" data-feature="anti_toxic">
+                <div class="knob"></div>
+              </div>
+            </div>
+            <div class="toggle-container">
+              <span class="toggle-label">Pnb In Home</span>
+              <div class="custom-toggle" data-feature="pnb_in_home">
+                <div class="knob"></div>
+              </div>
+            </div>
+            <div class="toggle-container">
+              <span class="toggle-label">Visit Random World</span>
+              <div class="custom-toggle" data-feature="visit_random_worlds">
+                <div class="knob"></div>
+              </div>
+            </div>
+            <div class="toggle-container">
+              <span class="toggle-label">Harvest Until Level</span>
+              <div class="custom-toggle" data-feature="harvest_until_level">
+                <div class="knob"></div>
+              </div>
+            </div>
+            <div class="toggle-container">
+              <span class="toggle-label">Auto Leave On Player</span>
+              <div class="custom-toggle" data-feature="auto_leave_on_player">
+                <div class="knob"></div>
+              </div>
+            </div>
+            <div class="toggle-container">
+              <span class="toggle-label">Auto Jammer</span>
+              <div class="custom-toggle" data-feature="auto_jammer">
+                <div class="knob"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="transferPage" style="display: none">
+        <h2>Masukkan Format EMAIL|TOKEN|RID</h2>
+        <div class="transfer-container">
+          <div class="line-numbers" id="lineNumbers"></div>
+          <div class="textarea-wrapper">
+            <textarea
+              id="botInput"
+              placeholder="example@mail.com|token123|rid456"
+            ></textarea>
+          </div>
+        </div>
+        <label for="storageWearInput">Storage Pickaxe :</label
+        ><input
+          type="text"
+          id="storageWearInput"
+          placeholder="Contoh: WORLD|ID"
+        /><br /><br />
+        <label for="storageMaladyInput">Storage Vial :</label
+        ><input
+          type="text"
+          id="storageMaladyInput"
+          placeholder="Contoh: WORLD|ID"
+        /><br /><br />
+        <button onclick="submitBots()" class="connect-button">AddBot</button>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
 </html>
